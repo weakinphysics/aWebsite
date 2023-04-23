@@ -1,0 +1,51 @@
+.greetAndSearch{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+.greeting{
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    justify-content: space-evenly;
+    margin-left: 5%;
+}
+.searchEnclosure{
+    display: flex;
+    justify-content: flex-end;
+    gap: 2%;
+    align-items: center;
+    width: 60%;
+}
+.searchBar{
+    display: flex;
+    width: 70%;
+    justify-content: space-between;
+    padding-top: 2%;
+    padding-bottom: 2%;
+    border: 1px solid lightgrey;
+    border-radius: 8px;
+}
+.searchIcon{
+    margin-right: 5%;
+    font-size: 1.2em;
+}
+.notificationIcon{
+    height: 73%;
+    width: 8%;
+    display: flex;
+    font-size: 1.2em;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    margin-right: 5%;
+    border: 1px solid lightgrey;
+}
+
+.searchInput{
+    font-size: 1em;
+    width: 70%;
+    margin-left: 5%;
+    border: none;
+    outline: none;
+}

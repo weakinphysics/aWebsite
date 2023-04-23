@@ -1,0 +1,55 @@
+.sidebarContainer{
+    background-color: #F5F7F9;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 7%;
+}
+
+.logo{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 5%;
+    align-items: center;
+    margin-left: 10%;
+    margin-top: 15%;
+    margin-right: 10%;
+}
+
+.logotext{
+    font-size: 2em;
+    font-weight: bold;
+}
+.menuItems{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    list-style-type: none;
+    justify-content: flex-start;
+    gap: 2%;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+.menuItem a{
+    text-decoration: none;
+}
+.menuItemText{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 10%;
+    padding-left: 5%;
+    padding-right: 5%;
+    padding-top: 5%;
+    padding-bottom: 5%;
+    margin-left: 10%;
+    margin-right: 10%;
+    font-size: 1.5em;
+    border-radius: 5px;
+    text-decoration: none;
+}
+

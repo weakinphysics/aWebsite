@@ -1,0 +1,14 @@
+   .formFieldInput {
+    width: 100%;
+    background-color: transparent;
+    color: #050606;
+    outline: none;
+    border: none;
+    font-size: 1em;
+    align-items: center;
+    padding-left: 2em;
+  }
+  
+  .formFieldInput::placeholder {
+    color: #616e7f;
+  }

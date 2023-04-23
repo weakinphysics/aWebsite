@@ -1,0 +1,113 @@
+.table {
+    width: 100%;
+    font-size: 0.9em;
+    font-family: sans-serif;
+}
+
+.tableCard{
+    background-color: rgb(230, 227, 227);
+    display: flex;
+    margin-top: 2%;
+    margin-left: 2%;
+    margin-right: 2%;
+    width: 90%;
+    max-height: 70%;
+    font-size: 0.9em;
+    font-family: sans-serif;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+    overflow: auto;
+}
+
+.table thead tr {
+    background-color: #009879;
+    color: #ffffff;
+    text-align: left;
+}
+
+.table th, td {
+    min-height: 10%;
+    max-height: 15%;
+    border-bottom: solid lightgrey 1px;
+    padding: 12px 15px;
+}
+.table td:hover {
+    background-color: rgb(225, 221, 221);
+}
+
+.table th {
+    background: rgb(230, 227, 227);
+    position: sticky;
+    top: 0px;
+    z-index: 1;
+    font-weight: bold;
+    font-size: 1.5em;
+}
+
+.table-container{
+    background-color: rgb(18, 18, 18);
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.search-bar{
+    width: 90%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+.search-icon{
+    margin-top: 2.5%;
+    font-size: 25px;
+    color: #c3c3c4;
+    margin-left: 1%;
+    margin-right: 5px;
+    text-align: center;
+}
+.search-icon:hover{
+    cursor: pointer;
+    color: rgb(201, 201, 203);
+}
+.search-input{
+    width: 30%;
+    background-color: rgb(237, 233, 233);
+    margin-top: 2%;
+    border-radius: 7px;
+    padding-top: 5px;
+    padding-left: 50px;
+    padding-bottom: 5px;
+    outline: none;
+    border: none;
+    font-size: 1.5em;
+}
+
+.paginator{
+    display: flex;
+    width: 50%;
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 15px;
+}
+
+.paginator-list{
+    width: 100%;
+    display: flex;
+    list-style-type: none;
+    justify-content: center;
+    gap: 1em;
+    align-items: center;
+}
+
+.paginator-list-item{
+    font-size: 1.2em;
+    color: #c6c6c6;
+}
+
+.paginator-list-item:hover{
+    cursor: pointer;
+    color: rgb(245, 245, 250);
+}
