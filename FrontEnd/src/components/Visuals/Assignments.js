@@ -1,43 +1,55 @@
 import React, {useState, useEffect} from 'react';
+import axios from 'axios';
 import classes from './Assignments.module.css'
 import FormField from '../Form/FormField';
 import * as IoIcons from 'react-icons/io5';
-import * as BsIcons from 'react-icons/bs'
+import * as BsIcons from 'react-icons/bs';
+import * as BiIcons from 'react-icons/bi';
 
 const rawData = [];
 
-for(let i = 0; i < 97; i++){
-    let obj = new Object({
-        company: "Ishaan",
-        contact: "9818896338",
-        country: "India",
-        email: "weakinphysics@gmail.com" 
-    })
-    rawData.push(obj);
-}
 
-rawData[0].company = "c company";
-rawData[10].company = "d company";
-rawData[20].company = "e company";
+const url = "http://127.0.0.1:5000/users/cookieCookie";
+
 
 export default function Assignments(){
+    
+
     const perPage = 15;
-    const maxPages = Math.ceil(rawData.length/perPage);
-    const [pageOptions, setPageOptions] = useState([1, 2,3]);
+
+
+
+    const [maxPages, setMaxPages] = useState(4);
+    const [pageData, setPageData] = useState([]);
+    const [pageOptions, setPageOptions] = useState([1, 2, 3]);
     const [currPage, setCurrPage] = useState(1);
-    const [data, setData] = useState(rawData);
     const [search, setSearch] = useState("");
+    const [searchReq, setSearchReq] = useState(false);
+    const [sortQuery, setSortQuery] = useState("Name");
+
+
+
+
+
 
     const handlesPageChange = (e)=>{
         console.log("Changing");
         setCurrPage(Number(e.target.textContent));
     }
-    
+
+
     useEffect(()=>{
-        setData((prevData)=>{
-            let nextData = rawData.slice((currPage - 1)*15, (currPage)*15);
-            nextData = nextData.filter((item)=>item.company.includes(search));
-            return nextData;
+        console.log("currPage", currPage);
+        axios.post(url, {
+            thePage: currPage,
+            perPage: perPage,
+            searchParams: search,
+            order: sortQuery
+        }).then((res)=>{
+            setPageData((cur)=>{
+                return res.data[0];
+            })
+            setMaxPages(res.data[1])
         });
         setPageOptions((xyz)=>{
             if(currPage === maxPages && currPage === 1) return [currPage];
@@ -51,78 +63,124 @@ export default function Assignments(){
                 return [currPage-1, currPage, currPage+1];
             }
         })
-    }, [currPage, maxPages, search]);
+    }, [currPage]);
 
 
-    
+    useEffect(()=>{
+        axios.post(url, {
+            thePage: 1,
+            perPage: perPage,
+            searchParams: search,
+            order: sortQuery
+        }).then((res)=>{
+            console.log(res.data);
+            if(res.data.length == 2)setPageData(res.data[0]);
+            if(res.data.length == 2)setMaxPages(Number.parseInt(res.data[1]));
+        })
+    }, [sortQuery, searchReq]);
+
+    useEffect(()=>{
+        setPageOptions((xyz)=>{
+            if(currPage === maxPages && currPage === 1) return [currPage];
+            if(currPage === maxPages){
+                return [currPage-2, currPage-1, currPage];
+            }
+            else if(currPage === 1){
+                return [currPage, currPage + 1, currPage + 2];
+            }
+            else{
+                return [currPage-1, currPage, currPage+1];
+            }
+        })
+    }, [maxPages]);
+
+    const sendsSearchRequest = (e)=>{
+        if(search !== "") setSearchReq((c)=>!c);
+    }
+
 
     const handlesSearch = (e)=>{
         setSearch(e.target.value);
+        if(e.target.value === "") setSearchReq((c)=>!c);
     }
+
+    
+
+
 
     return(
     <>
         <div className={classes["table-container"]}>
             <div className={classes["search-bar"]}>
                 <input placeholder = "search" className={classes['search-input']} value = {search} onChange = {handlesSearch}/>
-                <IoIcons.IoSearchOutline className = {classes['search-icon']}/>
+                <IoIcons.IoSearchOutline className = {classes['search-icon']} onClick = {sendsSearchRequest}/>
             </div>
             <div className = {classes["tableCard"]}>
                 <table className={classes.table}>
                     <tr>
-                        <th style = {{borderRight: "solid 1px lightgrey"}}>Company</th>
-                        <th style = {{borderRight: "solid 1px lightgrey"}}>Contact</th>
-                        <th>Email</th>
-                        <th style = {{borderLeft: "solid 1px lightgrey"}}>Country</th>
+                        <th style = {{borderRight: "solid 1px lightgrey"}}>Name <BiIcons.BiSort onClick = {()=>{
+                            setSortQuery("Name");
+                        }} style = {{cursor: "pointer"}}/></th>
+                        <th style = {{borderRight: "solid 1px lightgrey"}}>Position <BiIcons.BiSort/></th>
+                        <th style = {{borderRight: "solid 1px lightgrey"}}>Office <BiIcons.BiSort/></th>
+                        <th style = {{borderRight: "solid 1px lightgrey"}}>Age <BiIcons.BiSort/></th>
+                        <th>Start date <BiIcons.BiSort/></th>
+                        <th style = {{borderLeft: "solid 1px lightgrey"}}>Salary <BiIcons.BiSort/></th>
                     </tr>
-                    
-                    {data.map((item, index)=>{
+                    {pageData.map((item, index)=>{
                         return(<tr>
-                            <td style = {{borderRight: "solid 1px lightgrey"}}>{item.company}</td>
-                            <td style = {{borderRight: "solid 1px lightgrey"}}>{item.contact}</td>
-                            <td>{item.email}</td>
-                            <td style = {{borderLeft: "solid 1px lightgrey"}}>{item.country}</td>
+                            <td style = {{borderRight: "solid 1px lightgrey"}}>{item.Name}</td>
+                            <td style = {{borderRight: "solid 1px lightgrey"}}>{item.Position}</td>
+                            <td style = {{borderRight: "solid 1px lightgrey"}}>{item.Office}</td>
+                            <td style = {{borderRight: "solid 1px lightgrey"}}>{item.Age}</td>
+                            <td>{item["Start date"].substring(0, 10)}</td>
+                            <td style = {{borderLeft: "solid 1px lightgrey"}}>{item.Salary}</td>
                         </tr>)
                     })}
                 </table>
             </div>
+            
             <div className = {classes.paginator}>
                 <ul className = {classes['paginator-list']}>
-                    <l1>
-                        <BsIcons.BsChevronDoubleLeft className = {classes['paginator-list-item']} onClick ={()=>{
+                    <div className = {classes['paginator-list-item']}>
+                        <BsIcons.BsChevronDoubleLeft onClick ={()=>{
                             console.log("left click");
                             setCurrPage(1);
                         }}/> 
-                    </l1>
-                    <li>
-                        <BsIcons.BsChevronLeft className = {classes['paginator-list-item']} onClick ={()=>{
+                    </div>
+                    <div className = {classes['paginator-list-item']}>
+                        <BsIcons.BsChevronLeft  onClick ={()=>{
                             console.log("left click");
                             setCurrPage(Math.max(currPage-1, 1));
                         }}/>
-                    </li>
+                    </div>
                     {
                         pageOptions.map((item, index)=>{
                             if(item < 1) return <></>;
-                            return (<li className = {classes['paginator-list-item']} onClick = {handlesPageChange} style = {{textDecoration: (item === currPage)?"underline":"none"}} >{item}</li>);
+                            return (<div className = {classes['paginator-list-item']} onClick = {handlesPageChange} style = {{backgroundColor: (item === currPage)?"orange":""}} >{item}</div>);
                         })
                     }
-                    {(currPage < 6) && <li className={classes['paginator-list-item']}>
-                        ... 7
+                    {(currPage < maxPages) && <li className={classes['paginator-list-item']}>
+                        of {maxPages}
                     </li>}
-                    <li>
-                        <BsIcons.BsChevronRight className = {classes['paginator-list-item']} onClick = {(e)=>{
+                    <div className = {classes['paginator-list-item']}>
+                        <BsIcons.BsChevronRight  onClick = {(e)=>{
                             console.log("Changing");
                             setCurrPage(Math.min(currPage+1, maxPages));
                         }}/>
-                    </li>
-                    <li>
-                        <BsIcons.BsChevronDoubleRight className = {classes['paginator-list-item']} onClick = {(e)=>{
+                    </div>
+                    <div className = {classes['paginator-list-item']}>
+                        <BsIcons.BsChevronDoubleRight  onClick = {(e)=>{
                             setCurrPage(maxPages);
                         }} />
-                    </li>
+                    </div>
                 </ul>
             </div>
         </div>
     </>
     )
+
+
+
+    
 }

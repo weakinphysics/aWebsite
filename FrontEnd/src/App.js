@@ -10,6 +10,10 @@ import Register from './components/Form/Register';
 import Home from './components/UI/Home';
 import Assignments from './components/Visuals/Assignments';
 import Overview from "./components/UI/Overview";
+import Reports from "./components/UI/Reports";
+import Settings from "./components/UI/Settings";
+import Inbox from "./components/UI/Inbox";
+import FileStorage from "./components/UI/FileStorage";
 
 import "./App.css"
 
@@ -32,7 +36,11 @@ const router = createBrowserRouter([
     element: <Home/>,
     children: [
         {path: "/home/overview", element: <Overview/>},
-        {path: "/home/assignments", element: <Assignments/>}
+        {path: "/home/assignments", element: <Assignments/>},
+        {path: "/home/reports", element: <Reports/>},
+        {path: "/home/inbox", element: <Inbox/>},
+        {path: "/home/settings", element: <Settings/>},
+        {path: "/home/FileStorage", element: <FileStorage/>}
     ]
   },
 

@@ -4,11 +4,15 @@ import classes from "./Home.module.css";
 import Sidebar from "./Sidebar";
 import sidebarContext from '../contexts/sidebarContext';
 
-import * as FaIcons from 'react-icons/fa';
+
+
+import * as BiIcons from 'react-icons/bi';
 import * as AiIcons from 'react-icons/ai';
-import * as MdIcons from 'react-icons/md';
 import * as FiIcons from 'react-icons/fi';
 import * as BsIcons from 'react-icons/bs';
+
+
+import svgss from "../Visuals/svgFiles";
 
 
 const menuData = [
@@ -20,7 +24,7 @@ const menuData = [
     {
         title: "Assignments",
         path: "/home/assignments",
-        icon: <MdIcons.MdAssignment  />,
+        icon: svgss[4]
     },
     {
         title: "Reports",
@@ -35,12 +39,17 @@ const menuData = [
     {
         title: "Inbox",
         path: "/home/inbox",
-        icon: <FaIcons.FaEnvelopeOpenText />,
+        icon: svgss[7],
     },
     {
         title: "Settings",
         path: "/home/settings",
         icon: <FiIcons.FiSettings />,
+    },
+    {
+        title: "Logout",
+        path: "/",
+        icon: <BiIcons.BiLogOut />
     }
 ];
 

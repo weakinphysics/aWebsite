@@ -1,0 +1,34 @@
+.container{
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+    justify-content: flex-start;
+    border-radius: 15px;
+    background-color: rgb(235, 234, 234);
+    gap: 1%;
+}
+
+.displayContent{
+    height: 80%;
+    width: 80%;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+.displayContent img{
+    object-fit: cover;
+    height: 100%;
+    width: 100%;
+}
+.displayContent svg{
+    object-fit: cover;
+    height: 100%;
+    width: 100%;
+}
+.title{
+    display: flex;
+    margin-left: 10%;
+    margin-top: 3%;
+    margin-bottom: 3%;
+    border-bottom: 1px solid rgb(206, 203, 203);
+    padding-bottom: 2%;
+}

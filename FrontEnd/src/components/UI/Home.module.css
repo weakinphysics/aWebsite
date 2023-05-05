@@ -1,4 +1,5 @@
 .mainWindow{
+    overflow-x: hidden;
     display: flex;
     flex-direction: row;
     height:100vh;
@@ -7,12 +8,12 @@
 }
 
 .sideBarWindow{
-    width: 20%;
-    height: 100%;
+    width: 18%;
+    height: 107%;
 }
 
 .sideWindow{
-    width: 80%;
-    height: 100%;
+    width: 82%;
+    height: 107%;
 }
 

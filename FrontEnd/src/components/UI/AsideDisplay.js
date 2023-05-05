@@ -1,9 +1,12 @@
 import React from 'react';
 
+import WeeklyCalendar from '../Visuals/WeeklyCalendar';
 import classes from "./AsideDisplay.module.css"
 
 import svgss from '../Visuals/svgFiles';
 import otherImage from "../../assets/moriarty.jpeg";
+
+import Todo from '../Visuals/Todo';
 
 
 export default function AsideDisplay(props){
@@ -13,7 +16,7 @@ export default function AsideDisplay(props){
                 <div className = {classes.profilePanelHeader}>
                     <div className = {classes.profilePanelText}>
                         Profile
-                    </div>
+                    </div>s
                     <div className={classes.editProfileButton}>
                         {svgss[2]}
                     </div>
@@ -29,6 +32,8 @@ export default function AsideDisplay(props){
                         {svgss[3]}
                     </div>
                 </div>
+                <WeeklyCalendar/>
+                <Todo/>
             </div>
         </>  
     )

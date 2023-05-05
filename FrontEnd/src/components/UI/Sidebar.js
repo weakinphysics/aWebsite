@@ -1,10 +1,12 @@
 import React, {useState, useContext} from 'react';
-import {Link} from 'react-router-dom';
+import {Link, useNavigate} from 'react-router-dom';
 import classes from "./Sidebar.module.css";
 import sidebarContext from '../contexts/sidebarContext';
 
 
+
 export default function Sidebar(props){
+    const navigate = useNavigate();
     const ctx = useContext(sidebarContext);
     const scheme1 = {
         backgroundColor: "black",
@@ -18,6 +20,11 @@ export default function Sidebar(props){
     const settingFunction = (e)=>{
         console.log(e.target.closest("li").id);
         ctx.settingFunction(e.target.closest("li").id);
+    }
+
+    const initiateLogout = ()=>{
+        localStorage.removeItem("tokenRecvd");
+        navigate('/');
     }
     return (
         <div className = {classes.sidebarContainer}>
@@ -37,9 +44,9 @@ export default function Sidebar(props){
                         return(
                                 <li key = {index} id = {index} className={classes.menuItem} onClick = {settingFunction}>
                                     <Link to = {item.path}>
-                                        <div style = {ctx.activeElements[index]?scheme1:scheme2} className={classes.menuItemText}>
-                                                {item.icon} <span>{item.title}</span>
-                                        </div>
+                                        <div style = {ctx.activeElements[index]?scheme1:scheme2} className={classes.menuItemText} onClick = {(item.title === "Logout")?initiateLogout:()=>{}}>
+                                            {item.icon}<span>{item.title}</span>
+                                        </div >
                                     </Link>
                                 </li>
                         )

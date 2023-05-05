@@ -6,7 +6,8 @@ const keys = require('../config/keys');
 
 const validateLoginInput = require('../validation/login');
 const validateRegisterInput = require('../validation/register');
-const user = require('../models/User')
+const user = require('../models/User');
+const tableData = require('../models/Tabla');
 const PORT = process.env.PORT || 5000;
 
 router.post("/register", (req, res)=>{
@@ -87,4 +88,16 @@ router.post("/login", (req, res) => {
     });
   });
 
-  module.exports = router;
+router.post("/cookieCookie", (req, res)=>{
+  console.log(req.body);
+  if(req.body.searchParams !== "") tableData.find({Name: new RegExp(req.body.searchParams, "i")}).sort({[req.body.order] : 1}).limit(Number.parseInt(req.body.perPage)).then((recvd)=>{
+    res.send([[...recvd], 1]);
+  }).catch((err)=>console.log(err));
+  else tableData.find().sort({[req.body.order] : 1}).skip((Number.parseInt(req.body.thePage) - 1)*Number.parseInt(req.body.perPage)).limit(Number.parseInt(req.body.perPage)).then((recvd)=>res.send([[...recvd], 4])).catch((err)=>console.log(err));
+  //JWT validation
+})
+
+module.exports = router;
+
+
+

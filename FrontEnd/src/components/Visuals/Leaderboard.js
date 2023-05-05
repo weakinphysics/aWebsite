@@ -20,13 +20,13 @@ export default function Leaderboard(props){
                             <th>RANK</th>
                             <th><div style = {{marginLeft: "10%"}}>NAME</div></th>
                             <th>COURSE</th>
-                            <th>HOUR</th>
+                            <th>HOURS</th>
                             <th>POINTS</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <td><div style = {{display:"flex", justifyContent: "center", alignItems: "center"}}><span style ={{marginRight: "10%"}}>1</span> {svgss[0]}</div></td>
+                            <td><div style = {{display:"flex", justifyContent: "flex-start", alignItems: "center"}}><span style ={{marginRight: "10%"}}>1</span> {svgss[0]}</div></td>
                             <td>
                                 <div className = {classes.nameDiv}>
                                     <div className = {classes.nameImage}>
@@ -40,10 +40,10 @@ export default function Leaderboard(props){
                             </td>
                             <td>502</td>
                             <td>131</td>
-                            <td>122</td>
+                            <td style = {{color: "#3BAFA8"}}>122</td>
                         </tr>
                         <tr>
-                            <td><div style = {{display:"flex", justifyContent: "center", alignItems: "center"}}><span style ={{marginRight: "10%"}}>2</span> {svgss[1]}</div></td>
+                            <td><div style = {{display:"flex", justifyContent: "flex-start", alignItems: "center"}}><span style ={{marginRight: "10%"}}>2</span> {svgss[1]}</div></td>
                             <td>
                                 <div className = {classes.nameDiv}>
                                         <div className = {classes.nameImage}>
@@ -55,8 +55,8 @@ export default function Leaderboard(props){
                                 </div>
                             </td>
                             <td>502</td>
-                            <td>131</td>
-                            <td>121</td>
+                            <td>1</td>
+                            <td style = {{color: "#3BAFA8"}}>121</td>
                         </tr>
                     </tbody>
                     

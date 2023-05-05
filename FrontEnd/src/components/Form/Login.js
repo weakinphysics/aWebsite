@@ -52,6 +52,7 @@ export default function Login(props){
                 
           });
     }
+    console.log(myUserToken);
     useEffect(()=>{
         if(myUserToken){
             navigate("/home/overview");
