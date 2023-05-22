@@ -1,0 +1,82 @@
+.profilePanel{
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    margin-left: 5%;
+    margin-right: 5%;
+    height: 100%;
+    justify-content: flex-start;
+    align-items: center;    
+}
+
+.profilePanelHeader{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    align-items: center;
+}
+
+.profilePanelText{
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+.editProfileButton{
+    font-size: 2em;
+}
+.profileDisplay{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 20%;
+    justify-content: flex-start;
+    gap: 5%;
+    align-items: center;
+}
+
+
+
+.profileDisplayText{
+    font-size: 1.5em;
+    font-weight: bold;    
+}
+
+
+.profile_pic {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    height: 8em;
+    width: 8em;
+    background-size: cover;
+    background-position: center;
+    background-blend-mode: multiply;
+    vertical-align: middle;
+    text-align: center;
+    color: transparent;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    cursor: pointer;
+    margin-top: 20%;
+  }
+  .profile_pic:hover {
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 10000;
+    color: #fff;
+    transition: all 0.3s ease;
+    text-decoration: none;
+  }
+  .uploadImg{
+    display: none;
+    cursor: pointer;
+  }
+
+  .icon_container {
+    height: 80%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    /* stroke: #F47954; */
+    fill: #7F8182;
+  }

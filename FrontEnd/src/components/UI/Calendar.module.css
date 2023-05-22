@@ -1,0 +1,175 @@
+:root{
+    --calbg: rgb(253, 252, 252);
+}
+
+
+.container{
+    transition: width 2s, height 2s, background-color 2s;;
+    width: 25em;
+    height:20em;
+    border-radius: 10px;
+    background-color: rgb(253, 252, 252);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    z-index: 100;
+    top: 5em;
+    left: 11em;
+    position: absolute;
+
+    &::before,
+    &::after{
+        content: '\0020';
+        display: block;
+        position: absolute;
+        top: -15px;
+        left: 22em;
+        z-index: 2;
+        width: 0;
+        height: 0;
+        overflow: hidden;
+        border: solid 24px transparent;
+        border-top: 0;
+        border-bottom-color: white;
+    },
+    &::before {
+        top: -18px;
+        z-index: 1;
+        border-bottom-color: white;
+      }
+}
+
+
+
+.buttonsOnleft{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    gap: 5%;
+    width: 70%;
+    align-items: center;
+    font-weight: bold;
+}
+
+.arrowButtons{
+    display: flex;
+    justify-content: space-between;
+    width: 20%;
+    font-size: 1.2em;
+}
+
+.arrowButton:hover{
+    color: lightgray;
+}
+.controlBar{
+    display: flex;
+    width: 100%;
+    justify-content: flex-start;
+    align-items: center;
+    height: 8%;
+    margin-top: 3%;
+    margin-bottom: 3%;
+    margin-left: 10%;
+}
+
+.actualCalendar{
+    height: 88%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.calendarRow{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.calendarCell{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 2em;
+    height: 2em;
+    border-radius: 1em;
+}
+
+.calendarCellDead{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 2em;
+    height: 2em;
+    border-radius: 1em;
+    color: var(--calbg);
+    background-color: var(--calbg);
+}
+
+.calendarCell:hover{
+    cursor: pointer;
+    background-color: lightgrey;
+}
+
+.calendarCellHeader{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 2em;
+    height: 2em;
+    border-radius: 1em;
+    font-weight: bold;
+    color: grey;
+}
+
+.arrowButtons:hover{
+    cursor: pointer;
+}
+
+.yearDropDown:hover{
+    cursor: pointer;
+}
+
+
+[type="date"]::-webkit-inner-spin-button {
+    display: none;
+  }
+[type="date"]::-webkit-calendar-picker-indicator {
+    display: none;
+}
+
+
+.superContainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    background-color: inherit;
+}
+
+.dateInput{
+    border: unset;
+}
+
+.calendarIcon:hover{
+    cursor: pointer;
+    color: lightgray;
+}
+
+.inputContainer{
+    display: flex;
+    height: 100%;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 3%;
+    padding-right: 3%;
+    padding-top: 3%;
+    padding-bottom: 3%;
+    border-radius: 5px;
+    border: 1px solid black;
+}
+
+

@@ -1,0 +1,88 @@
+.App {
+    height: 100vh;
+    display: flex;
+    color: white;
+  }
+  
+  .appAside {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: #3857b8;
+  }
+  
+  .appForm {
+    padding-top: 100px;
+    width: 50%;
+    background-color: white;
+    overflow: auto;
+  }
+  
+  .pageSwitcher {
+    display: flex;
+    justify-content: space-evenly;
+    margin-bottom: 10%;
+  }
+  
+  .pageSwitcherItem {
+    background-color: #40434e;
+    color: #9da6b1;
+    padding: 10px 25px;
+    cursor: pointer;
+    font-size: inherit;
+    border: none;
+    outline: none;
+    display: inline-block;
+    text-decoration: none;
+    border-radius: 25px;
+  }
+  
+  .pageSwitcherItem-active {
+    background-color: #3857b8;
+    color: white;
+    padding: 10px 25px;
+    cursor: pointer;
+    font-size: inherit;
+    border: none;
+    outline: none;
+    display: inline-block;
+    text-decoration: none;
+    border-radius: 25px;
+  }
+  
+  /* .pageSwitcherItem:first-child {
+    border-radius: 25px;
+  }
+  .pageSwitcherItem:last-child {
+    border-radius: 25px;
+  }
+   */
+  .formCenter {
+    padding-left: 90px;
+    width: 80%;
+    margin-bottom: 100px;
+  }
+  
+  .formTitleLink:first-child {
+    margin-left: 0;
+  }
+  
+  .formTitleLink-active {
+    display: inline-block;
+    font-size: 1.7em;
+    color: white;
+  }
+
+  .formFields{
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    width: 100%;
+  }
+  
+  
+
+ 
+

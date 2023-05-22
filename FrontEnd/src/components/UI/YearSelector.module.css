@@ -1,0 +1,58 @@
+.container{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+.yearRow{
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: row;
+}
+
+ .container::-webkit-scrollbar {
+    width: 0.5em    ;
+  }
+   
+  .container::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  }
+   
+  .container::-webkit-scrollbar-thumb {
+    background-color: darkgrey;
+    outline: 1px solid slategrey;
+  }
+
+.yearItem{
+    background-color: inherit;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 30%;
+    padding: 5px 2px 5px 2px;
+}
+
+.yearItemActive{
+    background-color: rgb(226, 68, 0);
+    color: white;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 30%;
+    border-radius: 5px;
+    padding: 5px 2px 5px 2px;
+}
+
+.yearItem:hover{
+    cursor: pointer;
+}
+.yearItemActive:hover{
+    cursor: pointer;
+}
+

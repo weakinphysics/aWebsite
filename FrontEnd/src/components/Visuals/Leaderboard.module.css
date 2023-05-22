@@ -1,0 +1,58 @@
+.container{
+    display: flex;
+    flex-direction: column;
+    width: 95%;
+    margin-left: 2.5%;
+    margin-right: 2.5%;
+}
+.tableTitle{
+    text-align: left;
+}
+.tableEnclosure{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.tableTable{
+    width: 100%;
+}
+
+.nameDiv{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 5%;
+    margin-left: 10%;
+}
+
+.nameImage{
+    height: 25px;
+    width: 25px;
+    border-radius: 12.5px;
+    overflow: hidden;
+}
+
+.nameImage img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+.nameText{
+    font-weight: bold;
+}
+.tableTable th{
+    text-align: start;
+    text-decoration: none;
+    color: grey;
+    border-bottom: 1px solid grey;
+}
+.tableTable tr{
+    width: 100%;
+}
+
+.tableTable td{
+    text-align: start;
+    padding-left: 0;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}

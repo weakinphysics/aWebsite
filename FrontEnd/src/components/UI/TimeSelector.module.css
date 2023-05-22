@@ -1,0 +1,107 @@
+.container{
+    display: flex;
+    width: 95%;
+    justify-content: space-between;
+    margin-top: 10%;
+    padding-top: 5%;
+    padding-bottom: 5%;
+    padding-left: 2%;
+    padding-right: 2%;
+    border: 1px solid grey;
+    border-radius: 10px;
+    align-items: center;
+}
+
+.superContainer{
+    display: flex;
+    flex-direction: column;
+}
+
+
+[type="time"]::-webkit-inner-spin-button {
+    display: none;
+  }
+[type="time"]::-webkit-calendar-picker-indicator {
+    display: none;
+}
+
+
+.timeInput{
+    border:none;
+    padding: 0;
+    margin-inline-start: 0;
+}
+
+.timeIcon{
+    font-size: 1.4em;
+}
+
+.timeIcon:hover{
+    cursor: pointer;    
+}
+
+.listContainer{
+    display: flex;
+    width: 100%;
+    justify-content: flex-end;
+    gap: 2%;
+}
+
+.listHours{
+    display: flex;
+    flex-direction: column;
+    gap: 5%;
+    width: 25%;
+    height: 100%;
+    max-height: 300px;
+    overflow: scroll;
+}
+
+.listMins{
+    display: flex;
+    gap: 5%;
+    height: 100%;
+    flex-direction: column;
+    width: 25%;
+    max-height: 300px;
+    overflow: scroll;
+}
+
+.itemDiv{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding-top: 5%;
+    padding-bottom: 5%;
+    border-radius: 2px;
+}
+
+.itemDivActive{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding-top: 5%;
+    padding-bottom: 5%;
+    background-color: orange;
+    border-radius: 2px; 
+}
+
+.itemDiv:hover{
+    cursor:pointer;
+    background-color: rgb(237, 237, 237);
+}
+
+.listMins::-webkit-scrollbar {
+    display: none;
+}
+
+.listHours::-webkit-scrollbar {
+    display: none;
+}
+
+
+.timeInput:hover{
+    cursor: pointer;
+}
